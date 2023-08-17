@@ -1,0 +1,51 @@
+#!bin/bash/env python3
+
+#the purpose of this script is to help new Dnd players decide on a class to play
+#the code will ask questions about what the person wants to do in the game to narrow down choices until a final one is suggested.
+
+
+
+
+greeting = ("Lets help you find a DND class!")
+dnd_classes = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "rogue", "sorcerer", "warlock", "wizard"]
+front_line = ["barbarian", "druid", "fighter", "monk", "paladin"]
+support = ["bard", "druid", "cleric"]
+damage = ["barbarian", "fighter", "monk", "rogue", "sorcerer", "warlock", "wizard"]
+magic = ["bard"]
+
+#What questions are needed to narrow down to each option?
+role_que = "What role in the party would you like to fulfill?\n A. Front Line\n B. Support\n C. Damage Dealer"
+#if answer is support, do you see your character as a devout religious healer, or someone who cares about nature and can turn into animals, or a musician who inspires allies thorugh performance?
+
+magic_que = "Do you want to \n A. be able to do a lot of magic \n or \n B. primarily use weapons? \n-"
+combat_range_que = ("Do you prefer fighting \n A. Up Close \n or \n B. from range")
+def expanded():
+
+#take input to narrow down options
+#  archetype_choice = input("What role in the party would you like to fulfill?\n A. Front Line\n B. Support\n C. Damage Dealer")
+    role_choice = input(role_que)
+    if role_choice.lower() == "a" or "b" or "c":
+        input("Do you want to be able to do magic? \nYes or No:")
+
+    else:
+        print("Please provide one of the available answers: ")
+def main():
+    basic_classes = ["wizard", ["ranger", "fighter"]]
+
+    print(greeting)
+    mq_answer = input(magic_que)
+    if mq_answer.lower() == "a":
+        print(f"You should play a {basic_classes[0]}")
+    if mq_answer.lower() == "b":
+        ranger_or_fighter = input(combat_range_que)
+        if ranger_or_fighter.lower() == "a":
+            print(f"You should play as a {basic_classes[1][1]}!")
+        if ranger_or_fighter.lower() == "b":
+            print(f"You should play as a {basic_classes[1][0]}!")
+    else:
+        print("Please provide valid answers")
+
+
+
+if __name__ == "__main__":
+   main()
