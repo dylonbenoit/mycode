@@ -1,0 +1,6 @@
+farms = [{"name": "NE Farm", "agriculture": ["sheep", "cows", "pigs", "chickens", "llamas", "cats"]},
+         {"name": "W Farm", "agriculture": ["pigs", "chickens", "llamas"]},
+         {"name": "SE Farm", "agriculture": ["chickens", "carrots", "celery"]}]
+
+ne_animals = farms[1][0]
+print(ne_animals)
