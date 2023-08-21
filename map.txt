@@ -18,7 +18,7 @@
                },
             'Trophy Room' : {
                 'south': 'Dining Room',
-                'item': 'sword',
+                'item': ['sword', 'golden idol'],
             },
             'Garden' : {
                   'north' : 'Dining Room'

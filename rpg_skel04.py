@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Driving a simple game framework with
    a dictionary object | Alta3 Research"""
-
+import json
 def showInstructions():
     """Show the game instructions when called"""
     #print a main menu and the commands
@@ -35,41 +35,25 @@ inventory = []
 ## A dictionary linking a room to other rooms
 ## A dictionary linking a room to other rooms
 ### Steal rpg_1.py from Paul
+def get_map():
+    with open('map.txt') as map_file:
+        rooms = eval(map_file.read())
+    return rooms
 
-   
-rooms = {
-
-            'Hall' : {
-                  'south' : 'Kitchen',
-                  'east'  : 'Dining Room',
-                  'item'  : 'key'
-                },
-
-            'Kitchen' : {
-                  'north' : 'Hall',
-                  'item'  : 'monster',
-                },
-            'Dining Room' : {
-                  'west' : 'Hall',
-                  'south': 'Garden',
-                  'item' : 'potion',
-                  'north' : 'Trophy Room'
-               },
-            'Trophy Room' : {
-                'south': 'Dining Room',
-                'item': ['sword', 'golden idol'],
-            },
-            'Garden' : {
-                  'north' : 'Dining Room'
-            }
-         }
-
+def get_json():
+    '''Open a file with json inside.'''
+    with open('map.txt') as map_file:
+        json_map = json.dumps(map_file)
+        content = json_map.read()
+        rooms = json.loads(content)
+    return rooms
 
 
 # start the player in the Hall
 currentRoom = 'Hall'
 
 showInstructions()
+rooms = get_json()
 
 # breaking this while loop means the game is over
 while True:
