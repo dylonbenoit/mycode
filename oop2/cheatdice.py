@@ -2,7 +2,8 @@
 """RZFeeser | Alta3 Research
    Player - Class model
    Cheat_Swapper(Player) - Subclass model
-   Cheat_Loaded_Dice(Player) - Subclass model"""
+   Cheat_Loaded_Dice(Player) - Subclass model
+   Cheat_Mulligan(Player) - Subclass moddel"""
 
 # standard library
 from random import randint
@@ -32,4 +33,10 @@ class Cheat_Loaded_Dice(Player): # inheritance of Player
             if self.dice[i] < 6:
                 self.dice[i] += 1
             i += 1
-
+# allows user to mulligan a dice
+class Cheat_Mulligan(Player): #instance of Player
+    def cheat(self):
+        if sum(self.dice) <=9:
+            self.dice =[]
+            for i in range (3):
+                self.dice.append(radint(1,6))
